@@ -1,5 +1,7 @@
 https://github.com/gabriel140282/Examen-Parcial-3-No-vinculante-.git
 
+# ENUNCIADO EJERCICIOS
+
 Condiciones de Entrega del Examen de Programación en C++
 
 Estimado estudiante,
@@ -147,3 +149,7 @@ Con base en tu experiencia y las implementaciones desarrolladas:
 
 ¿Cuál de los dos lenguajes consideras más adecuado para el proyecto del CGEA?
 ¿Qué recomendaciones harías al equipo de desarrollo del CGEA para la siguiente fase del proyecto?
+
+# TIPO TEST
+b) C utiliza printf y scanf mientras que C++ utiliza std::cout y std::cin.
+

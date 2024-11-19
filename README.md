@@ -152,5 +152,10 @@ Con base en tu experiencia y las implementaciones desarrolladas:
 
 # TIPO TEST
 ¿Cuál es la principal diferencia entre la estructura básica del programa en C y C++?
+
 **b) C utiliza printf y scanf mientras que C++ utiliza std::cout y std::cin.**
+
+¿Qué es un espacio de nombres en C++?
+
+**c) Una función de la biblioteca estándar.**
 

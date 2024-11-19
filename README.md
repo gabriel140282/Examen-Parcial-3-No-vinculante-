@@ -151,5 +151,6 @@ Con base en tu experiencia y las implementaciones desarrolladas:
 ¿Qué recomendaciones harías al equipo de desarrollo del CGEA para la siguiente fase del proyecto?
 
 # TIPO TEST
-b) C utiliza printf y scanf mientras que C++ utiliza std::cout y std::cin.
+¿Cuál es la principal diferencia entre la estructura básica del programa en C y C++?
+**b) C utiliza printf y scanf mientras que C++ utiliza std::cout y std::cin.**
 

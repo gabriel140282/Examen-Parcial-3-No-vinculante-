@@ -162,3 +162,7 @@ Con base en tu experiencia y las implementaciones desarrolladas:
 En programación orientada a objetos en C++, ¿qué es una clase?
 
 **d) Una plantilla para crear objetos, proporciona una definición inicial para el estado (miembros de datos) y el comportamiento (miembros de la función).**
+
+¿Qué son los templates en C++?
+
+**b) Permiten la creación de funciones y clases genéricas, es decir, que pueden trabajar con cualquier tipo de datos.**

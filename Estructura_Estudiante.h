@@ -4,16 +4,48 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
-class Estudiante {
+// Clase Asistencia
+class Asistencia {
+private:
+    string fecha;
+    string materia;
+    string estado; // "Asistió", "Falta", "Tardanza"
 
+public:
+    Asistencia() : fecha(""), materia(""), estado("") {}
+
+    Asistencia(const string& fecha, const string& materia, const string& estado)
+        : fecha(fecha), materia(materia), estado(estado) {}
+
+    void setFecha(const string& fecha) {
+        this->fecha = fecha;
+    }
+
+    void setMateria(const string& materia) {
+        this->materia = materia;
+    }
+
+    void setEstado(const string& estado) {
+        this->estado = estado;
+    }
+
+    void mostrarAsistencia() const {
+        cout << "Fecha: " << fecha << ", Materia: " << materia << ", Estado: " << estado << endl;
+    }
+};
+
+// Clase Estudiante
+class Estudiante {
 private:
     string nombre;
     int edad;
     float promedio;
     vector<string> materias; // Lista de materias
+    vector<Asistencia> asistencias; // Lista de asistencias
 
 public:
     Estudiante() : nombre(""), edad(0), promedio(0.0) {}
@@ -62,6 +94,27 @@ public:
         cout << "Edad: " << edad << endl;
         cout << "Promedio: " << promedio << endl;
         mostrarMaterias();
+        mostrarAsistencias();
+    }
+
+    void registrarAsistencia(const string& fecha, const string& materia, const string& estado) {
+        // Verificar si la materia está inscrita
+        if (find(materias.begin(), materias.end(), materia) != materias.end()) {
+            asistencias.emplace_back(fecha, materia, estado);
+        } else {
+            cout << "No se puede registrar asistencia para la materia " << materia << ", no está inscrita." << endl;
+        }
+    }
+
+    void mostrarAsistencias() const {
+        if (asistencias.empty()) {
+            cout << "\nNo hay asistencias registradas." << endl;
+        } else {
+            cout << "\nAsistencias:" << endl;
+            for (const auto& asistencia : asistencias) {
+                asistencia.mostrarAsistencia();
+            }
+        }
     }
 };
 

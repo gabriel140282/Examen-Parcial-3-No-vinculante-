@@ -2,29 +2,29 @@
 #include <string.h>
 #include "Estructura_Estudiante.h"
 
+// Mostrar los detalles de un estudiante
 void mostrarEstudiante(struct Estudiante estudiante) {
     printf("Nombre: %s\n", estudiante.nombre);
     printf("Edad: %d\n", estudiante.edad);
     printf("Promedio: %.2f\n", estudiante.promedio);
 
-    printf("Materias inscritas:\n");
-    for (int i = 0; i < estudiante.numMaterias; i++) {
-        printf("%d. %s\n", i + 1, estudiante.materias[i]);
-    }
-
+    mostrarMaterias(estudiante);
     mostrarAsistencias(estudiante);
 }
 
-void agregarMateria(struct Estudiante* estudiante, const char* materia) {
+// Agregar una materia al estudiante
+int agregarMateria(struct Estudiante* estudiante, const char* materia) {
     if (estudiante->numMaterias < MAX_MATERIAS) {
         strcpy(estudiante->materias[estudiante->numMaterias], materia);
         estudiante->numMaterias++;
+        return 0; // Operación exitosa
     } else {
-        printf("No se pueden agregar más materias. El límite es %d.\n", MAX_MATERIAS);
+        return ERROR_MAX_MATERIAS; // Excepción personalizada
     }
 }
 
-void eliminarMateria(struct Estudiante* estudiante, const char* materia) {
+// Eliminar una materia del estudiante
+int eliminarMateria(struct Estudiante* estudiante, const char* materia) {
     int found = -1;
     for (int i = 0; i < estudiante->numMaterias; i++) {
         if (strcmp(estudiante->materias[i], materia) == 0) {
@@ -38,15 +38,16 @@ void eliminarMateria(struct Estudiante* estudiante, const char* materia) {
             strcpy(estudiante->materias[i], estudiante->materias[i + 1]);
         }
         estudiante->numMaterias--;
-        printf("Materia '%s' eliminada correctamente.\n", materia);
+        return 0; // Operación exitosa
     } else {
-        printf("Materia '%s' no encontrada.\n", materia);
+        return ERROR_MATERIA_NO_ENCONTRADA; // Excepción personalizada
     }
 }
 
+// Mostrar las materias inscritas
 void mostrarMaterias(struct Estudiante estudiante) {
     if (estudiante.numMaterias == 0) {
-        printf("El estudiante no tiene materias inscritas.\n");
+        printf("No hay materias inscritas.\n");
     } else {
         printf("Materias inscritas:\n");
         for (int i = 0; i < estudiante.numMaterias; i++) {
@@ -55,27 +56,48 @@ void mostrarMaterias(struct Estudiante estudiante) {
     }
 }
 
-void registrarAsistencia(struct Estudiante* estudiante, const char* fecha, const char* materia, const char* estado) {
+// Registrar una asistencia
+int registrarAsistencia(struct Estudiante* estudiante, const char* fecha, const char* materia, const char* estado) {
     if (estudiante->numAsistencias < MAX_ASISTENCIAS) {
         strcpy(estudiante->asistencias[estudiante->numAsistencias].fecha, fecha);
         strcpy(estudiante->asistencias[estudiante->numAsistencias].materia, materia);
         strcpy(estudiante->asistencias[estudiante->numAsistencias].estado, estado);
         estudiante->numAsistencias++;
+        return 0; // Operación exitosa
     } else {
-        printf("No se pueden registrar más asistencias. El límite es %d.\n", MAX_ASISTENCIAS);
+        return ERROR_MAX_ASISTENCIAS; // Excepción personalizada
     }
 }
 
+// Mostrar las asistencias registradas
 void mostrarAsistencias(struct Estudiante estudiante) {
     if (estudiante.numAsistencias == 0) {
-        printf("El estudiante no tiene asistencias registradas.\n");
+        printf("No hay asistencias registradas.\n");
     } else {
         printf("Asistencias registradas:\n");
         for (int i = 0; i < estudiante.numAsistencias; i++) {
             printf("Fecha: %s, Materia: %s, Estado: %s\n",
-                estudiante.asistencias[i].fecha,
-                estudiante.asistencias[i].materia,
-                estudiante.asistencias[i].estado);
+                   estudiante.asistencias[i].fecha,
+                   estudiante.asistencias[i].materia,
+                   estudiante.asistencias[i].estado);
         }
+    }
+}
+
+// Manejar errores personalizados
+void manejarError(int codigoError) {
+    switch (codigoError) {
+        case ERROR_MAX_MATERIAS:
+            printf("Error: No se pueden agregar más materias. Límite alcanzado.\n");
+            break;
+        case ERROR_MATERIA_NO_ENCONTRADA:
+            printf("Error: La materia no se encontró.\n");
+            break;
+        case ERROR_MAX_ASISTENCIAS:
+            printf("Error: No se pueden registrar más asistencias. Límite alcanzado.\n");
+            break;
+        default:
+            printf("Error desconocido.\n");
+            break;
     }
 }

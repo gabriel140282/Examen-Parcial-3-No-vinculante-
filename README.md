@@ -1,4 +1,4 @@
-# EXAMEN PARCIAL 3:  Gabriel Kaakedjian y Juan ignacio González
+# EXAMEN PARCIAL 3:  Gabriel Kaakedjian y Juan Ignacio González
 
 https://github.com/gabriel140282/Examen-Parcial-3-No-vinculante-.git
 

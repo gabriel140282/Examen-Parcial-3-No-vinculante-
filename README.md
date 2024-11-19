@@ -159,3 +159,6 @@ Con base en tu experiencia y las implementaciones desarrolladas:
 
 **c) Una función de la biblioteca estándar.**
 
+En programación orientada a objetos en C++, ¿qué es una clase?
+
+**d) Una plantilla para crear objetos, proporciona una definición inicial para el estado (miembros de datos) y el comportamiento (miembros de la función).**

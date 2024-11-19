@@ -114,6 +114,7 @@ Se proporciona una comparación clara y correcta entre las implementaciones de C
 (20%) Calidad del código:
 
 Todo el código está bien comentado, bien organizado, sigue buenas prácticas de programación y se compila sin errores ni advertencias en CLion.
+
 **Importante:**
 
 Todos los códigos deben ser originales. Se utilizarán herramientas de detección de plagio para verificar la originalidad del código.

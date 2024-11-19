@@ -128,6 +128,7 @@ El código debe compilarse sin errores ni advertencias en CLion.
 
 Implementa una estructura llamada Estudiante con los campos: nombre, edad, y promedio.
 Desarrolla la función mostrarEstudiante() que muestre todos los campos de la estructura.
+
 2. C:
 
 Realiza una implementación equivalente en el lenguaje C.
@@ -178,6 +179,7 @@ Conclusión:
 Con base en tu experiencia y las implementaciones desarrolladas:
 
 ¿Cuál de los dos lenguajes consideras más adecuado para el proyecto del CGEA?
+
 ¿Qué recomendaciones harías al equipo de desarrollo del CGEA para la siguiente fase del proyecto?
 
 # Parte 1: Preguntas de elección múltiple (20%)

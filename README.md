@@ -150,19 +150,19 @@ Con base en tu experiencia y las implementaciones desarrolladas:
 ¿Cuál de los dos lenguajes consideras más adecuado para el proyecto del CGEA?
 ¿Qué recomendaciones harías al equipo de desarrollo del CGEA para la siguiente fase del proyecto?
 
-# TIPO TEST
-¿Cuál es la principal diferencia entre la estructura básica del programa en C y C++?
+# Parte 1: Preguntas de elección múltiple (20%)
+1. ¿Cuál es la principal diferencia entre la estructura básica del programa en C y C++?
 
 **b) C utiliza printf y scanf mientras que C++ utiliza std::cout y std::cin.**
 
-¿Qué es un espacio de nombres en C++?
+2. ¿Qué es un espacio de nombres en C++?
 
 **c) Una función de la biblioteca estándar.**
 
-En programación orientada a objetos en C++, ¿qué es una clase?
+3. En programación orientada a objetos en C++, ¿qué es una clase?
 
 **d) Una plantilla para crear objetos, proporciona una definición inicial para el estado (miembros de datos) y el comportamiento (miembros de la función).**
 
-¿Qué son los templates en C++?
+4. ¿Qué son los templates en C++?
 
 **b) Permiten la creación de funciones y clases genéricas, es decir, que pueden trabajar con cualquier tipo de datos.**

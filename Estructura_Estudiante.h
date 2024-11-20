@@ -5,8 +5,28 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <stdexcept>
 
 using namespace std;
+
+// Excepciones personalizadas
+class MateriaNoEncontradaException : public runtime_error {
+public:
+    explicit MateriaNoEncontradaException(const string& mensaje)
+        : runtime_error(mensaje) {}
+};
+
+class MateriaYaRegistradaException : public runtime_error {
+public:
+    explicit MateriaYaRegistradaException(const string& mensaje)
+        : runtime_error(mensaje) {}
+};
+
+class MateriaNoInscritaException : public runtime_error {
+public:
+    explicit MateriaNoInscritaException(const string& mensaje)
+        : runtime_error(mensaje) {}
+};
 
 // Clase Asistencia
 class Asistencia {
@@ -21,17 +41,9 @@ public:
     Asistencia(const string& fecha, const string& materia, const string& estado)
         : fecha(fecha), materia(materia), estado(estado) {}
 
-    void setFecha(const string& fecha) {
-        this->fecha = fecha;
-    }
-
-    void setMateria(const string& materia) {
-        this->materia = materia;
-    }
-
-    void setEstado(const string& estado) {
-        this->estado = estado;
-    }
+    void setFecha(const string& fecha) { this->fecha = fecha; }
+    void setMateria(const string& materia) { this->materia = materia; }
+    void setEstado(const string& estado) { this->estado = estado; }
 
     void mostrarAsistencia() const {
         cout << "Fecha: " << fecha << ", Materia: " << materia << ", Estado: " << estado << endl;
@@ -53,19 +65,14 @@ public:
     Estudiante(const string& nombre, int edad, float promedio)
         : nombre(nombre), edad(edad), promedio(promedio) {}
 
-    void setNombre(const string& nombre) {
-        this->nombre = nombre;
-    }
-
-    void setEdad(int edad) {
-        this->edad = edad;
-    }
-
-    void setPromedio(float promedio) {
-        this->promedio = promedio;
-    }
+    void setNombre(const string& nombre) { this->nombre = nombre; }
+    void setEdad(int edad) { this->edad = edad; }
+    void setPromedio(float promedio) { this->promedio = promedio; }
 
     void agregarMateria(const string& materia) {
+        if (find(materias.begin(), materias.end(), materia) != materias.end()) {
+            throw MateriaYaRegistradaException("La materia ya está registrada.");
+        }
         materias.push_back(materia);
     }
 
@@ -74,7 +81,15 @@ public:
         if (it != materias.end()) {
             materias.erase(it);
         } else {
-            cout << "La materia " << materia << " no se encuentra en la lista." << endl;
+            throw MateriaNoEncontradaException("La materia no se encuentra en la lista.");
+        }
+    }
+
+    void registrarAsistencia(const string& fecha, const string& materia, const string& estado) {
+        if (find(materias.begin(), materias.end(), materia) != materias.end()) {
+            asistencias.emplace_back(fecha, materia, estado);
+        } else {
+            throw MateriaNoInscritaException("La materia no está inscrita, no se puede registrar asistencia.");
         }
     }
 
@@ -89,23 +104,6 @@ public:
         }
     }
 
-    void mostrarEstudiante() const {
-        cout << "Nombre: " << nombre << endl;
-        cout << "Edad: " << edad << endl;
-        cout << "Promedio: " << promedio << endl;
-        mostrarMaterias();
-        mostrarAsistencias();
-    }
-
-    void registrarAsistencia(const string& fecha, const string& materia, const string& estado) {
-        // Verificar si la materia está inscrita
-        if (find(materias.begin(), materias.end(), materia) != materias.end()) {
-            asistencias.emplace_back(fecha, materia, estado);
-        } else {
-            cout << "No se puede registrar asistencia para la materia " << materia << ", no está inscrita." << endl;
-        }
-    }
-
     void mostrarAsistencias() const {
         if (asistencias.empty()) {
             cout << "\nNo hay asistencias registradas." << endl;
@@ -115,6 +113,14 @@ public:
                 asistencia.mostrarAsistencia();
             }
         }
+    }
+
+    void mostrarEstudiante() const {
+        cout << "Nombre: " << nombre << endl;
+        cout << "Edad: " << edad << endl;
+        cout << "Promedio: " << promedio << endl;
+        mostrarMaterias();
+        mostrarAsistencias();
     }
 };
 

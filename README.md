@@ -2,7 +2,7 @@
 
 https://github.com/gabriel140282/Examen-Parcial-3-No-vinculante-.git
 
-# ENUNCIADO EJERCICIOS
+## ***ENUNCIADO EJERCICIOS***
 
 ## Condiciones de Entrega del Examen de Programación en C++
 

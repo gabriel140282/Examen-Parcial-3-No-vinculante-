@@ -4,44 +4,46 @@ void recogerInformacion() {
     try {
         Estudiante estudiante1;
 
+        // Configurar información básica del estudiante
         estudiante1.setNombre("Gabriel");
         estudiante1.setEdad(20);
         estudiante1.setPromedio(9.5);
 
-        // Agregar materias
+        // Añadir materias al estudiante
         estudiante1.agregarMateria("Matematicas");
         estudiante1.agregarMateria("Fisica");
         estudiante1.agregarMateria("Programacion");
 
-        // Intentar agregar una materia duplicada
+        // Manejar intento de agregar una materia ya registrada
         try {
             estudiante1.agregarMateria("Fisica");
         } catch (const MateriaYaRegistradaException& e) {
-            cout << "Error: " << e.what() << endl;
+            cout << "No se pudo agregar la materia: " << e.what() << endl;
         }
 
-        // Eliminar materia
+        // Eliminar una materia existente
         estudiante1.eliminarMateria("Fisica");
 
-        // Intentar eliminar una materia que no existe
+        // Manejar intento de eliminar una materia inexistente
         try {
             estudiante1.eliminarMateria("Quimica");
         } catch (const MateriaNoEncontradaException& e) {
-            cout << "Error: " << e.what() << endl;
+            cout << "No se pudo eliminar la materia: " << e.what() << endl;
         }
 
-        // Registrar asistencias
-        estudiante1.registrarAsistencia("2024-11-20", "Matematicas", "Asistió");
+        // Registrar una asistencia válida
+        estudiante1.registrarAsistencia("2024-11-20", "Matematicas", "Asistio");
 
-        // Intentar registrar asistencia para una materia no inscrita
+        // Manejar intento de registrar asistencia para una materia no inscrita
         try {
-            estudiante1.registrarAsistencia("2024-11-20", "Quimica", "Asistió");
+            estudiante1.registrarAsistencia("2024-11-20", "Quimica", "Asistio");
         } catch (const MateriaNoInscritaException& e) {
-            cout << "Error: " << e.what() << endl;
+            cout << "No se pudo registrar la asistencia: " << e.what() << endl;
         }
 
+        // Mostrar información del estudiante
         estudiante1.mostrarEstudiante();
     } catch (const exception& e) {
-        cout << "Error inesperado: " << e.what() << endl;
+        cout << "Ocurrio un error inesperado: " << e.what() << endl;
     }
 }

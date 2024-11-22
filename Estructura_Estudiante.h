@@ -9,7 +9,7 @@
 
 using namespace std;
 
-// Excepciones personalizadas
+// Definición de excepciones personalizadas
 class MateriaNoEncontradaException : public runtime_error {
 public:
     explicit MateriaNoEncontradaException(const string& mensaje)
@@ -28,50 +28,54 @@ public:
         : runtime_error(mensaje) {}
 };
 
-// Clase Asistencia
+// Clase que representa una asistencia
 class Asistencia {
 private:
     string fecha;
     string materia;
-    string estado; // "Asistió", "Falta", "Tardanza"
+    string estado; // Posibles valores: "Asistió", "Falta", "Tardanza"
 
 public:
+    // Constructores
     Asistencia() : fecha(""), materia(""), estado("") {}
-
     Asistencia(const string& fecha, const string& materia, const string& estado)
         : fecha(fecha), materia(materia), estado(estado) {}
 
+    // Métodos setters
     void setFecha(const string& fecha) { this->fecha = fecha; }
     void setMateria(const string& materia) { this->materia = materia; }
     void setEstado(const string& estado) { this->estado = estado; }
 
+    // Mostrar la información de la asistencia
     void mostrarAsistencia() const {
         cout << "Fecha: " << fecha << ", Materia: " << materia << ", Estado: " << estado << endl;
     }
 };
 
-// Clase Estudiante
+// Clase que representa a un estudiante
 class Estudiante {
 private:
     string nombre;
     int edad;
     float promedio;
-    vector<string> materias; // Lista de materias
-    vector<Asistencia> asistencias; // Lista de asistencias
+    vector<string> materias;       // Lista de materias inscritas
+    vector<Asistencia> asistencias; // Historial de asistencias
 
 public:
+    // Constructores
     Estudiante() : nombre(""), edad(0), promedio(0.0) {}
-
     Estudiante(const string& nombre, int edad, float promedio)
         : nombre(nombre), edad(edad), promedio(promedio) {}
 
+    // Métodos setters
     void setNombre(const string& nombre) { this->nombre = nombre; }
     void setEdad(int edad) { this->edad = edad; }
     void setPromedio(float promedio) { this->promedio = promedio; }
 
+    // Métodos para manejar materias
     void agregarMateria(const string& materia) {
         if (find(materias.begin(), materias.end(), materia) != materias.end()) {
-            throw MateriaYaRegistradaException("La materia ya está registrada.");
+            throw MateriaYaRegistradaException("La materia ya esta registrada.");
         }
         materias.push_back(materia);
     }
@@ -85,14 +89,16 @@ public:
         }
     }
 
+    // Métodos para manejar asistencias
     void registrarAsistencia(const string& fecha, const string& materia, const string& estado) {
         if (find(materias.begin(), materias.end(), materia) != materias.end()) {
             asistencias.emplace_back(fecha, materia, estado);
         } else {
-            throw MateriaNoInscritaException("La materia no está inscrita, no se puede registrar asistencia.");
+            throw MateriaNoInscritaException("La materia no esta inscrita, no se puede registrar asistencia.");
         }
     }
 
+    // Métodos para mostrar información del estudiante
     void mostrarMaterias() const {
         if (materias.empty()) {
             cout << "El estudiante no tiene materias inscritas." << endl;
@@ -124,6 +130,7 @@ public:
     }
 };
 
+// Declaración de función adicional
 void recogerInformacion();
 
-#endif //ESTRUCTURA_ESTUDIANTE_H
+#endif // ESTRUCTURA_ESTUDIANTE_H

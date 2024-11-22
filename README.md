@@ -198,3 +198,24 @@ Con base en tu experiencia y las implementaciones desarrolladas:
 4. ¿Qué son los templates en C++?
 
 **b) Permiten la creación de funciones y clases genéricas, es decir, que pueden trabajar con cualquier tipo de datos.**
+
+# Preguntas Conclusión
+
+¿Cuál de los dos lenguajes consideras más adecuado para el proyecto del CGEA?
+
+**Ya que el proyecto del CGEA cuenta con estructuras complejas como Estudiantes, materias, asistencia y manejo de errores consideramos que es más adecuado el uso de C++ debido a su soporte para orientación a objetos, manejo de excepciones, y herramientas modernas para trabajar con estructuras complejas y listas dinámicas como arrays y el uso de memoria automatizada. Además, C++, presenta un código más limpio y claro que C, evitando de esta forma posibles errores.**
+
+¿Qué recomendaciones harías al equipo de desarrollo del CGEA para la siguiente fase del proyecto?
+
+Nosotros recomendaríamos al equipo de desarrollo del CGEA que para la siguiente fase del proyecto se centrarán en:
+
+***Crear un Diseño modular y escalable:*** Implementar un diseño basado en módulos para separar la gestión de estudiantes, materias y asistencia. Usar un patrón de diseño como Modelo-Vista-Controlador (MVC) para mantener la lógica del sistema organizada y adaptable a futuras ampliaciones.
+
+***Implementación de seguridad y validación de datos:*** Asegurarte de validar todos los datos de entrada (nombres, fechas, materias) y manejar los errores mediante excepciones (en C+ +) o códigos de error claros (en C) (personalmente recomendamos C++). Implementar prácticas de seguridad como encriptación para proteger la información personal de los estudiantes. 
+
+***Pruebas automatizadas y monitoreo de desempeño:*** Integrar herramientas de pruebas continuas para garantizar la funcionalidad y estabilidad de cada módulo. Usar herramientas como Valgrind o AddressSanitizer para detectar fugas de memoria y optimizar el rendimiento.
+
+***Gestión centralizada de bases de datos:*** Diseñar una base de datos relacional bien estructurada (por ejemplo, usando MySQL o PostgreSQL) para manejar las relaciones entre estudiantes, materias y asistencia. Considerar un ORM (Object-Relational Mapping) en caso de usar C++ para simplificar el manejo de datos.
+
+***Documentación clara y colaboración eficiente:*** Mantener una documentación técnica actualizada que incluya diagramas de arquitectura, estructuras de datos y guías para los
+desarrolladores. Recomendamos el uso de herramientas de colaboración como Git/Github para hacer que la colaboración sea aún más eficiente.

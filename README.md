@@ -201,11 +201,11 @@ Con base en tu experiencia y las implementaciones desarrolladas:
 
 # Preguntas Conclusión
 
-¿Cuál de los dos lenguajes consideras más adecuado para el proyecto del CGEA?
+*1. ¿Cuál de los dos lenguajes consideras más adecuado para el proyecto del CGEA?*
 
-**Ya que el proyecto del CGEA cuenta con estructuras complejas como Estudiantes, materias, asistencia y manejo de errores consideramos que es más adecuado el uso de C++ debido a su soporte para orientación a objetos, manejo de excepciones, y herramientas modernas para trabajar con estructuras complejas y listas dinámicas como arrays y el uso de memoria automatizada. Además, C++, presenta un código más limpio y claro que C, evitando de esta forma posibles errores.**
+Ya que el proyecto del CGEA cuenta con estructuras complejas como Estudiantes, materias, asistencia y manejo de errores consideramos que es más adecuado el uso de C++ debido a su soporte para orientación a objetos, manejo de excepciones, y herramientas modernas para trabajar con estructuras complejas y listas dinámicas como arrays y el uso de memoria automatizada. Además, C++, presenta un código más limpio y claro que C, evitando de esta forma posibles errores.
 
-¿Qué recomendaciones harías al equipo de desarrollo del CGEA para la siguiente fase del proyecto?
+*2. ¿Qué recomendaciones harías al equipo de desarrollo del CGEA para la siguiente fase del proyecto?*
 
 Nosotros recomendaríamos al equipo de desarrollo del CGEA que para la siguiente fase del proyecto se centrarán en:
 

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "Estructura_Estudiante.h"
+#include "Estructura-Estudiantes.h"
 
 // Mostrar los detalles de un estudiante
 void mostrarEstudiante(struct Estudiante estudiante) {
